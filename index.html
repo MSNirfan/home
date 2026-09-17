@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSN Irfan | Visionary Entrepreneur & Tech Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#05070B',
+                        darkCard: '#0B1120',
+                        cyberCyan: '#00F2FE',
+                        cyberPurple: '#7000FF',
+                        cyberEmerald: '#00E676',
+                        cyberGold: '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient-x': 'gradientX 12s ease infinite',
+                        'beacon': 'beaconPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.25)', borderColor: 'rgba(0, 242, 254, 0.4)' },
+                            '100%': { boxShadow: '0 0 35px rgba(112, 0, 255, 0.6)', borderColor: 'rgba(112, 0, 255, 0.8)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(1deg)' }
+                        },
+                        gradientX: {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' }
+                        },
+                        beaconPulse: {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.4', transform: 'scale(1.25)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #05070B;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        
+        /* Cursor Spotlight Overlay */
+        #cursorGlow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 500px; height: 500px;
+            margin-left: -250px; margin-top: -250px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(112, 0, 255, 0.05) 50%, transparent 80%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.08s ease-out;
+            will-change: transform;
+        }
+
+        .glass-panel {
+            background: rgba(11, 17, 32, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-glow {
+            background: rgba(11, 17, 32, 0.88);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 45%, #7000FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Nav Capsule Pill Styling */
+        .nav-capsule {
+            display: inline-flex;
+            items-center: center;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .nav-capsule:hover {
+            background: rgba(0, 242, 254, 0.12);
+            border-color: rgba(0, 242, 254, 0.4);
+            color: #00F2FE;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+            transform: translateY(-1.5px);
+        }
+
+        /* Tilt / Interactive Elevate Cards */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .tilt-card:hover {
+            border-color: rgba(0, 242, 254, 0.5) !important;
+            box-shadow: 0 15px 35px -10px rgba(0, 242, 254, 0.25), 0 0 20px rgba(112, 0, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F2FE;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-cyberCyan selection:text-black relative">
+
+    <div id="cursorGlow"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 glass-panel border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative flex items-center justify-center">
+                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyberCyan via-cyberPurple to-cyberGold opacity-70 blur-sm group-hover:opacity-100 group-hover:blur-md transition-all duration-500 animate-spin-slow"></div>
+                    <div class="relative w-12 h-10 rounded-xl bg-obsidian border border-cyberCyan/50 flex items-center justify-center font-heading font-black text-sm text-cyberCyan tracking-wider shadow-lg">
+                        M5N1
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-lg tracking-wider text-white block leading-none group-hover:text-cyberCyan transition-colors">MSN IRFAN</span>
+                    <span class="text-[10px] text-cyberCyan font-mono tracking-widest uppercase">Global Hustler &amp; Builder</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-2 text-xs font-medium text-slate-300">
+                <a href="#hero" class="nav-capsule">Overview</a>
+                <a href="#story" class="nav-capsule">The Journey</a>
+                <a href="#stats" class="nav-capsule">Impact &amp; Stats</a>
+                <a href="#certs" class="nav-capsule">Credentials</a>
+                <a href="#venture" class="nav-capsule">Parent Enterprise</a>
+                <a href="#skills" class="nav-capsule">Skills</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#contact" onclick="highlightContact()" class="px-5 py-2.5 rounded-full font-semibold text-xs font-mono uppercase tracking-wider bg-gradient-to-r from-cyberCyan via-blue-500 to-cyberPurple text-black hover:shadow-xl hover:shadow-cyberCyan/40 transition-all duration-300 hover:scale-105 flex items-center gap-2 border border-cyberCyan/50">
+                    <i class="fa-solid font-bold fa-paper-plane"></i> Connect Legacy
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-300 hover:text-white text-2xl focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden glass-panel border-b border-slate-800 px-6 py-6 space-y-3 mt-3">
+            <a href="#hero" class="mobile-link block nav-capsule w-full text-center text-slate-200">Overview</a>
+            <a href="#story" class="mobile-link block nav-capsule w-full text-center text-slate-200">The Journey</a>
+            <a href="#stats" class="mobile-link block nav-capsule w-full text-center text-slate-200">Impact &amp; Stats</a>
+            <a href="#certs" class="mobile-link block nav-capsule w-full text-center text-slate-200">Credentials</a>
+            <a href="#venture" class="mobile-link block nav-capsule w-full text-center text-slate-200">Parent Enterprise</a>
+            <a href="#skills" class="mobile-link block nav-capsule w-full text-center text-slate-200">Skills</a>
+            <a href="#contact" onclick="highlightContact()" class="mobile-link inline-block w-full text-center px-5 py-3 rounded-full font-bold bg-cyberCyan text-black">Connect Legacy</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <canvas id="heroCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-cyberCyan/40 text-cyberCyan text-xs font-mono uppercase tracking-widest animate-pulse">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyberEmerald animate-ping"></span>
+                        Next Destination: Prague, Czech Republic (Sept 2027 • BSc in CS)
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-white leading-none">
+                        From Barisal to <br class="hidden sm:inline"/>
+                        <span class="text-gradient">Prague &amp; Beyond.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        First in bloodline to pioneer science, tech, and enterprise from Dhaka to global markets. 
+                        A battle-tested sales expert, AI strategist, and future conglomerate founder turning the curve <span class="text-cyberCyan font-semibold underline decoration-cyberCyan/50">parabolic</span>.
+                    </p>
+
+                    <!-- Social Media Links (Hero) -->
+                    <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
+                        <a href="https://www.linkedin.com/in/mdsni/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan flex items-center justify-center text-base transition-all hover:scale-110 shadow-lg hover:shadow-cyberCyan/30" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/kingpin404/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan flex items-center justify-center text-base transition-all hover:scale-110 shadow-lg hover:shadow-cyberCyan/30" title="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kingpin_404/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan flex items-center justify-center text-base transition-all hover:scale-110 shadow-lg hover:shadow-cyberCyan/30" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@irfanvay" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan flex items-center justify-center text-base transition-all hover:scale-110 shadow-lg hover:shadow-cyberCyan/30" title="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <a href="#story" class="px-8 py-4 rounded-full font-bold text-slate-900 bg-cyberCyan hover:bg-cyan-300 shadow-xl shadow-cyberCyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-3">
+                            <span>Explore Parabolic Story</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" onclick="highlightContact()" class="px-8 py-4 rounded-full font-semibold text-white glass-panel hover:bg-slate-800 border border-slate-700 transition-all duration-300 hover:border-cyberCyan/50 flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-cyberCyan"></i>
+                            <span>Email Directly</span>
+                        </a>
+                    </div>
+
+                    <!-- Micro Badge strip -->
+                    <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div class="glass-panel p-3 rounded-2xl border border-slate-800/80">
+                            <p class="text-2xl sm:text-3xl font-heading font-extrabold text-white">88%+</p>
+                            <p class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Sales Closing Rate</p>
+                        </div>
+                        <div class="glass-panel p-3 rounded-2xl border border-slate-800/80">
+                            <p class="text-2xl sm:text-3xl font-heading font-extrabold text-cyberCyan">1st Gen</p>
+                            <p class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Higher Science Pioneer</p>
+                        </div>
+                        <div class="glass-panel p-3 rounded-2xl border border-slate-800/80">
+                            <p class="text-2xl sm:text-3xl font-heading font-extrabold text-cyberPurple">2027</p>
+                            <p class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Prague CS Launch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image / Frame Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md tilt-card">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-cyberCyan via-cyberPurple to-cyberEmerald rounded-3xl blur-xl opacity-60 animate-pulse-glow"></div>
+                        
+                        <div class="relative rounded-3xl glass-panel p-4 overflow-hidden border border-slate-700/80">
+                            <div class="relative h-[480px] w-full rounded-2xl overflow-hidden group">
+                                <!-- Image file named irfan.jpg with user fallback -->
+                                <img src="irfan.jpg" onerror="this.onerror=null; this.src='image_5630a4.jpg';" alt="MSN Irfan" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-90"></div>
+
+                                <div class="absolute bottom-4 left-4 right-4 p-4 glass-panel rounded-2xl border border-white/10 space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-mono font-bold text-cyberCyan">MSN IRFAN</span>
+                                        <span class="px-2 py-0.5 rounded text-[10px] bg-cyberEmerald/20 text-cyberEmerald font-mono">ACTIVE HUSTLE</span>
+                                    </div>
+                                    <p class="text-xs text-slate-300">
+                                        "From local Dhaka markets to Gulshan, now architecting AI-driven enterprise systems for the world."
+                                    </p>
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <span class="w-2 h-2 rounded-full bg-cyberCyan animate-ping"></span>
+                                        <span class="text-[11px] text-slate-400 font-mono">Barisal ➔ Dhaka ➔ Gulshan ➔ Prague</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-24 relative bg-slate-950/70 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-cyberCyan">Parabolic Growth Path</h2>
+                <h3 class="text-3xl sm:text-5xl font-heading font-extrabold text-white">The Hustler's Blueprint</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    From overcoming initial shyness and hardship to becoming a top sales performer, self-taught tech innovator, and global-bound enterprise builder.
+                </p>
+            </div>
+
+            <!-- Parabolic Curve Timeline Visualizer -->
+            <div class="relative">
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-slate-800 via-cyberCyan to-cyberPurple transform md:-translate-x-1/2"></div>
+
+                <div class="space-y-12">
+                    <!-- Stage 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="flex items-center justify-start md:justify-end w-full md:w-1/2 md:pr-12 pl-12 md:pl-0">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card max-w-lg">
+                                <div class="flex items-center gap-3 text-xs font-mono text-cyberCyan mb-2">
+                                    <span class="px-2.5 py-1 rounded-full bg-cyberCyan/10">STAGE 01</span>
+                                    <span>Roots &amp; Bloodline Firsts</span>
+                                </div>
+                                <h4 class="text-xl font-heading font-bold text-white mb-2">Born in Barisal, Forged in Dhaka</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Born in a small rural village in Barisal. Stepped into Dhaka as the <strong>first in his bloodline</strong> to pursue high school &amp; college in the capital, and the first to complete Higher Secondary from a Science background.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-slate-900 border-2 border-cyberCyan flex items-center justify-center text-cyberCyan text-xs font-bold shadow-lg shadow-cyberCyan/30">
+                            01
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-slate-900 border-2 border-cyberPurple flex items-center justify-center text-cyberPurple text-xs font-bold shadow-lg shadow-cyberPurple/30">
+                            02
+                        </div>
+                        <div class="flex items-center justify-start w-full md:w-1/2 md:pl-12 pl-12">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card max-w-lg">
+                                <div class="flex items-center gap-3 text-xs font-mono text-cyberPurple mb-2">
+                                    <span class="px-2.5 py-1 rounded-full bg-cyberPurple/10">STAGE 02 • AGE 15</span>
+                                    <span>Hardware Revolution</span>
+                                </div>
+                                <h4 class="text-xl font-heading font-bold text-white mb-2">The Internet Shift &amp; Board Success</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Once struggling academically, everything changed after COVID when he received a laptop at age 15—a reward from his late grandmother for merit success. Powered by YouTube lectures &amp; Google Science articles, he soared to the top of his class. In 2023, his merit in SSC was honored with a smartphone from his grandmother.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="flex items-center justify-start md:justify-end w-full md:w-1/2 md:pr-12 pl-12 md:pl-0">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card max-w-lg">
+                                <div class="flex items-center gap-3 text-xs font-mono text-cyberEmerald mb-2">
+                                    <span class="px-2.5 py-1 rounded-full bg-cyberEmerald/10">STAGE 03</span>
+                                    <span>Multi-Sector Sales Mastery</span>
+                                </div>
+                                <h4 class="text-xl font-heading font-bold text-white mb-2">Shy Kid to 88%+ Sales Closing Rate</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Conquered early shyness through real-world grind: working in local markets (achieving an astounding <strong>88%+ conversion rate</strong>), RMG factories, supershop chains, restaurant service, junior tuition, and helping his father successfully regrow his business after 2021.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-slate-900 border-2 border-cyberEmerald flex items-center justify-center text-cyberEmerald text-xs font-bold shadow-lg shadow-cyberEmerald/30">
+                            03
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-slate-900 border-2 border-cyberGold flex items-center justify-center text-cyberGold text-xs font-bold shadow-lg shadow-cyberGold/30">
+                            04
+                        </div>
+                        <div class="flex items-center justify-start w-full md:w-1/2 md:pl-12 pl-12">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card max-w-lg">
+                                <div class="flex items-center gap-3 text-xs font-mono text-cyberGold mb-2">
+                                    <span class="px-2.5 py-1 rounded-full bg-cyberGold/10">STAGE 04</span>
+                                    <span>Gulshan Era &amp; AI Catalyst</span>
+                                </div>
+                                <h4 class="text-xl font-heading font-bold text-white mb-2">The Gulshan Expansion &amp; AI Stack</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Made his mark in Gulshan—Bangladesh's elite economic nerve center. Leveraged AI tools to rapidly scale output, automate processes, and architect scalable business models.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="flex items-center justify-start md:justify-end w-full md:w-1/2 md:pr-12 pl-12 md:pl-0">
+                            <div class="glass-panel-glow p-6 rounded-2xl max-w-lg tilt-card">
+                                <div class="flex items-center gap-3 text-xs font-mono text-cyberCyan mb-2">
+                                    <span class="px-2.5 py-1 rounded-full bg-cyberCyan/20">STAGE 05 • SEPT 2027</span>
+                                    <span>Prague Global Launch</span>
+                                </div>
+                                <h4 class="text-xl font-heading font-bold text-white mb-2">BSc in CS @ Prague, Czech Republic</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed">
+                                    Next milestone unlocked: Heading to Prague, Czech Republic in September 2027 for a BSc in Computer Science. Building the academic &amp; technical bedrock for cross-border tech ventures.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-cyberCyan text-black flex items-center justify-center font-bold text-sm shadow-xl shadow-cyberCyan/50">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-800 bg-gradient-to-br from-slate-900/90 to-obsidian">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyberCyan">Quantified Hustle</span>
+                    <h3 class="text-3xl font-heading font-bold text-white mt-1">Impact &amp; Performance Metrics</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 tilt-card text-center group">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-cyberCyan/10 text-cyberCyan flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <p class="text-4xl font-heading font-black text-white mb-1">88%+</p>
+                        <p class="text-sm font-semibold text-cyberCyan">Sales Closing Efficiency</p>
+                        <p class="text-xs text-slate-400 mt-2">Proven conversion rate in competitive local retail and direct customer markets.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 tilt-card text-center group">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-cyberPurple/10 text-cyberPurple flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <p class="text-4xl font-heading font-black text-white mb-1">6+</p>
+                        <p class="text-sm font-semibold text-cyberPurple">Sectors Mastered</p>
+                        <p class="text-xs text-slate-400 mt-2">RMG, Supershops, Restaurants, Tuitions, Family Business Recovery, Tech.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 tilt-card text-center group">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-cyberEmerald/10 text-cyberEmerald flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <p class="text-4xl font-heading font-black text-white mb-1">100%</p>
+                        <p class="text-sm font-semibold text-cyberEmerald">Self-Driven Learning</p>
+                        <p class="text-xs text-slate-400 mt-2">Leveraging AI, YouTube lectures, research papers, and global online courses.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 tilt-card text-center group">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-cyberGold/10 text-cyberGold flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <p class="text-4xl font-heading font-black text-white mb-1">Global</p>
+                        <p class="text-sm font-semibold text-cyberGold">Target Scale</p>
+                        <p class="text-xs text-slate-400 mt-2">Architecting parent company for international tech and service expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs" class="py-24 relative bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <!-- SECTION HEADER: CERTIFICATIONS -->
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyberCyan animate-ping"></span>
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyberCyan">Knowledge &amp; Industry Standards</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white">High-Value Certifications</h2>
+                <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+                    Strictly ordered credentials from premier global universities, UN agencies, and tech pioneers.
+                </p>
+            </div>
+
+            <!-- Certifications Grid (Strict Sequence - Dates Removed) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Cambridge International Qualifications -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold flex items-center gap-1.5 border border-purple-500/20">
+                                <i class="fa-solid fa-graduation-cap"></i> Cambridge / UniAthena
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Basics of Artificial Intelligence &amp; Basics of Data Science
+                        </h3>
+                        <p class="text-xs text-slate-400">Cambridge International Qualifications, UK</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Data Science &amp; AI Core</span>
+                        <i class="fa-solid fa-brain text-cyberPurple"></i>
+                    </div>
+                </div>
+
+                <!-- 2. University of Helsinki (Finland) -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 font-bold flex items-center gap-1.5 border border-blue-500/20">
+                                <i class="fa-solid fa-building-columns"></i> University of Helsinki
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Ethics of AI
+                        </h3>
+                        <p class="text-xs text-slate-400">University of Helsinki, Finland</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Responsible AI Frameworks</span>
+                        <i class="fa-solid fa-scale-balanced text-blue-400"></i>
+                    </div>
+                </div>
+
+                <!-- 3. University of Leeds (UK) -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-bold flex items-center gap-1.5 border border-emerald-500/20">
+                                <i class="fa-solid fa-code"></i> University of Leeds
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Foundations of Software Testing and Validation
+                        </h3>
+                        <p class="text-xs text-slate-400">Click Start &amp; Institute of Coding, University of Leeds, UK</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Software Quality Assurance</span>
+                        <i class="fa-solid fa-vial-circle-check text-cyberEmerald"></i>
+                    </div>
+                </div>
+
+                <!-- 4. United Nations University -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-bold flex items-center gap-1.5 border border-cyan-500/20">
+                                <i class="fa-solid fa-globe"></i> UN University
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Net Zero 101: What, Why and How
+                        </h3>
+                        <p class="text-xs text-slate-400">Institute of the Advanced Study of Sustainability (UNU-IAS)</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>ESG &amp; Sustainability Strategy</span>
+                        <i class="fa-solid fa-leaf text-cyan-400"></i>
+                    </div>
+                </div>
+
+                <!-- 5. AWS (Amazon Web Services) -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 font-bold flex items-center gap-1.5 border border-orange-500/20">
+                                <i class="fa-brands fa-aws"></i> AWS Training
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Fundamentals of Machine Learning and Artificial Intelligence
+                        </h3>
+                        <p class="text-xs text-slate-400">Amazon Web Services (AWS) Training &amp; Certification</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Cloud AI Infrastructure</span>
+                        <i class="fa-solid fa-network-wired text-orange-400"></i>
+                    </div>
+                </div>
+
+                <!-- 6. ENISA (European Union Agency for Cybersecurity) -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-bold flex items-center gap-1.5 border border-indigo-500/20">
+                                <i class="fa-solid fa-shield-halved"></i> ENISA (European Union)
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Zero Trust Cybersecurity Foundation
+                        </h3>
+                        <p class="text-xs text-slate-400">European Union Agency for Cybersecurity</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Zero Trust Security Architecture</span>
+                        <i class="fa-solid fa-lock text-indigo-400"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECTION HEADER: PRACTICAL SIMULATIONS -->
+            <div class="pt-10 border-t border-slate-800/80">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyberPurple animate-ping"></span>
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyberPurple">Hands-On Market Execution</span>
+                </div>
+                <h3 class="text-2xl sm:text-4xl font-heading font-extrabold text-white">Practical Job Simulations</h3>
+                <p class="text-slate-400 text-sm mt-1 max-w-2xl">
+                    Simulated high-stake corporate workflows matching top international financial &amp; venture firm standards.
+                </p>
+            </div>
+
+            <!-- Practical Job Simulations -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Goldman Sachs Virtual Experience -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 font-bold flex items-center gap-1.5 border border-blue-500/20">
+                                <i class="fa-solid fa-building-columns"></i> Goldman Sachs
+                            </span>
+                            <span class="text-slate-400 text-[10px]">Virtual Experience</span>
+                        </div>
+                        <h4 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Goldman Sachs Operations Simulation
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Modeled Ultra-High-Net-Worth (UHNW) transaction workflows, settlement processes, and foundational operational risk management.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>UHNW Transactions &amp; Ops</span>
+                        <i class="fa-solid fa-briefcase text-blue-400"></i>
+                    </div>
+                </div>
+
+                <!-- Bank of America Virtual Experience -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-bold flex items-center gap-1.5 border border-red-500/20">
+                                <i class="fa-solid fa-landmark"></i> Bank of America
+                            </span>
+                            <span class="text-slate-400 text-[10px]">Virtual Experience</span>
+                        </div>
+                        <h4 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Investment Banking Virtual Experience
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Performed historical financial performance analyses, SWOT evaluations, and comprehensive financial forecast modeling.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Financial Modeling &amp; SWOT</span>
+                        <i class="fa-solid fa-chart-pie text-red-400"></i>
+                    </div>
+                </div>
+
+                <!-- H2 Ventures Virtual Experience -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 tilt-card flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold flex items-center gap-1.5 border border-purple-500/20">
+                                <i class="fa-solid fa-rocket"></i> H2 Ventures
+                            </span>
+                            <span class="text-slate-400 text-[10px]">Virtual Experience</span>
+                        </div>
+                        <h4 class="text-lg font-heading font-bold text-white group-hover:text-cyberCyan transition-colors">
+                            Venture Capital Growth Experience
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Evaluated startup valuations, unit economics, growth metrics, and applied investment selection decision frameworks.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span>Valuation &amp; Growth Metrics</span>
+                        <i class="fa-solid fa-seedling text-purple-400"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="venture" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-14 rounded-3xl border border-cyberCyan/30 relative">
+                <div class="absolute top-0 right-0 p-8 opacity-10 text-9xl text-cyberCyan font-black select-none pointer-events-none">
+                    HOLDING
+                </div>
+
+                <div class="max-w-3xl space-y-4 mb-12">
+                    <span class="px-3 py-1 rounded-full bg-cyberPurple/20 text-cyberPurple text-xs font-mono uppercase tracking-widest font-bold border border-cyberPurple/30">The Parent Enterprise Vision</span>
+                    <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white">Architecting a Multi-Industry Empire</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Currently structuring a modern parent company designed to create, acquire, and accelerate businesses across technology, intelligent services, and emerging international markets.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 space-y-4 tilt-card">
+                        <div class="w-12 h-12 rounded-xl bg-cyberCyan/10 text-cyberCyan flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white">AI &amp; Tech Solutions</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Building hyper-efficient automated enterprise software, custom AI agent integrations, and scalable SaaS models for SMBs.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 space-y-4 tilt-card">
+                        <div class="w-12 h-12 rounded-xl bg-cyberPurple/10 text-cyberPurple flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white">High-Velocity Sales &amp; Advisory</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Deploying battle-tested offline-to-online sales frameworks that rev up business revenue streams and customer acquisition.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl glass-panel border border-slate-800 space-y-4 tilt-card">
+                        <div class="w-12 h-12 rounded-xl bg-cyberEmerald/10 text-cyberEmerald flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white">Cross-Border Ventures</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Bridging South Asian tech talent and European market opportunities through Prague-based holding networks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 relative bg-slate-950/60 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Skill Matrix -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyberCyan">Core Competencies</span>
+                        <h2 class="text-3xl font-heading font-extrabold text-white mt-1">Skill &amp; Capability Matrix</h2>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                <span>Sales, Negotiation &amp; Conversion</span>
+                                <span class="text-cyberCyan font-bold">95% (Expert)</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden p-0.5 border border-slate-700">
+                                <div class="h-full bg-gradient-to-r from-cyberCyan to-blue-500 rounded-full w-[95%] shadow-lg shadow-cyberCyan/50"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                <span>AI Prompting &amp; Agent Workflows</span>
+                                <span class="text-cyberPurple font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden p-0.5 border border-slate-700">
+                                <div class="h-full bg-gradient-to-r from-cyberPurple to-pink-500 rounded-full w-[90%] shadow-lg shadow-cyberPurple/50"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                <span>Financial Analysis &amp; SWOT Modeling</span>
+                                <span class="text-cyberEmerald font-bold">85%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden p-0.5 border border-slate-700">
+                                <div class="h-full bg-gradient-to-r from-cyberEmerald to-teal-400 rounded-full w-[85%] shadow-lg shadow-cyberEmerald/50"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                <span>Enterprise Growth Strategy &amp; Retail Ops</span>
+                                <span class="text-cyberGold font-bold">92%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden p-0.5 border border-slate-700">
+                                <div class="h-full bg-gradient-to-r from-cyberGold to-orange-500 rounded-full w-[92%] shadow-lg shadow-cyberGold/50"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                <span>Cybersecurity &amp; Cloud Basics</span>
+                                <span class="text-blue-400 font-bold">80%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden p-0.5 border border-slate-700">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full w-[80%] shadow-lg shadow-blue-500/50"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Retro Terminal -->
+                <div id="terminal" class="lg:col-span-6">
+                    <div class="rounded-2xl glass-panel border border-slate-700 overflow-hidden font-mono text-xs shadow-2xl tilt-card">
+                        <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                            </div>
+                            <span class="text-slate-400 text-[11px]">m5n1@legacy-os:~</span>
+                        </div>
+
+                        <div class="p-6 h-80 overflow-y-auto space-y-3 bg-obsidian text-slate-300" id="terminalOutput">
+                            <p class="text-cyberCyan">M5N1 Terminal Engine [Version 3.0.1]</p>
+                            <p class="text-slate-400">Type <span class="text-yellow-400 font-bold">'help'</span> to view available commands.</p>
+                        </div>
+
+                        <div class="bg-slate-900/80 px-4 py-3 border-t border-slate-800 flex items-center gap-2">
+                            <span class="text-cyberCyan font-bold">&gt;</span>
+                            <input type="text" id="terminalInput" placeholder="Type command (e.g. story, certs, socials, email)..." class="bg-transparent text-white w-full focus:outline-none font-mono text-xs">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div id="contactCard" class="glass-panel p-8 sm:p-14 rounded-3xl border border-slate-800 relative transition-all duration-500">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-cyberCyan">Connect Legacy</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white mt-2 mb-4">Let's Build Something Monumental</h2>
+                
+                <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-6">
+                    Open for high-impact advisory, enterprise collaboration, tech partnerships, and investor dialogues.
+                </p>
+
+                <!-- Social Media Bar in Contact -->
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <a href="https://www.linkedin.com/in/mdsni/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan text-xs font-mono flex items-center gap-2 transition-all hover:scale-105">
+                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/kingpin404/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan text-xs font-mono flex items-center gap-2 transition-all hover:scale-105">
+                        <i class="fa-brands fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/kingpin_404/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan text-xs font-mono flex items-center gap-2 transition-all hover:scale-105">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.youtube.com/@irfanvay" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full glass-panel border border-slate-700 hover:border-cyberCyan text-slate-300 hover:text-cyberCyan text-xs font-mono flex items-center gap-2 transition-all hover:scale-105">
+                        <i class="fa-brands fa-youtube"></i> YouTube
+                    </a>
+                </div>
+
+                <!-- Direct Email Badge & Copy Widget -->
+                <div class="mb-8 inline-flex flex-col sm:flex-row items-center gap-3 p-3.5 rounded-full glass-panel border border-cyberCyan/40 bg-slate-900/90 shadow-xl shadow-cyberCyan/10">
+                    <a href="mailto:shahriarnafix@gmail.com" class="flex items-center gap-2 text-cyberCyan font-mono font-bold text-sm sm:text-base hover:underline px-3">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>shahriarnafix@gmail.com</span>
+                    </a>
+                    <button onclick="copyEmail()" id="copyBtn" class="px-5 py-2 rounded-full bg-cyberCyan/10 hover:bg-cyberCyan hover:text-black text-cyberCyan text-xs font-mono font-bold transition-all flex items-center gap-2 border border-cyberCyan/30">
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="copyBtnText">Copy Email</span>
+                    </button>
+                </div>
+
+                <form id="contactForm" class="space-y-4 max-w-lg mx-auto text-left">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="senderName" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl glass-panel border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberCyan">
+                        <input type="email" id="senderEmail" required placeholder="Your Email" class="w-full px-4 py-3 rounded-xl glass-panel border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberCyan">
+                    </div>
+                    <input type="text" id="msgSubject" placeholder="Subject / Venture Proposal" class="w-full px-4 py-3 rounded-xl glass-panel border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberCyan">
+                    <textarea id="msgBody" rows="4" required placeholder="Your Message or Investment Intent..." class="w-full px-4 py-3 rounded-xl glass-panel border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberCyan"></textarea>
+
+                    <button type="submit" class="w-full py-4 rounded-full font-bold bg-gradient-to-r from-cyberCyan via-blue-500 to-cyberPurple text-black hover:opacity-90 transition-all duration-300 shadow-xl shadow-cyberCyan/25 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Send Email to MSN Irfan</span>
+                    </button>
+                </form>
+
+                <div id="formSuccess" class="hidden mt-6 p-4 rounded-2xl bg-cyberEmerald/20 border border-cyberEmerald text-cyberEmerald text-sm">
+                    Opening default email composer for <strong>shahriarnafix@gmail.com</strong>...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-slate-800/60 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-cyberCyan">M5N1</span>
+                <span>&copy; <span id="year"></span> MSN Irfan. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/mdsni/" target="_blank" rel="noopener noreferrer" class="hover:text-cyberCyan transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/kingpin404/" target="_blank" rel="noopener noreferrer" class="hover:text-cyberCyan transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/kingpin_404/" target="_blank" rel="noopener noreferrer" class="hover:text-cyberCyan transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@irfanvay" target="_blank" rel="noopener noreferrer" class="hover:text-cyberCyan transition-colors" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <span class="text-slate-700">|</span>
+                <a href="mailto:shahriarnafix@gmail.com" class="text-cyberCyan hover:underline">shahriarnafix@gmail.com</a>
+                <a href="#hero" class="hover:text-cyberCyan">Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Mouse Spotlight Light Overlay
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        });
+
+        // 2. Parabolic Hero Canvas Animation
+        const canvas = document.getElementById('heroCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width, height;
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = canvas.parentElement.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const particles = Array.from({ length: 45 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 2 + 1,
+                dx: (Math.random() - 0.5) * 0.8,
+                dy: (Math.random() - 0.5) * 0.8,
+                alpha: Math.random() * 0.5 + 0.2
+            }));
+
+            function drawParabola() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Draw curve
+                ctx.beginPath();
+                ctx.moveTo(0, height * 0.85);
+                ctx.quadraticCurveTo(width * 0.5, height * 0.8, width, height * 0.15);
+                ctx.strokeStyle = 'rgba(0, 242, 254, 0.25)';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([8, 8]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Particles
+                particles.forEach(p => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0 || p.x > width) p.dx *= -1;
+                    if (p.y < 0 || p.y > height) p.dy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 242, 254, ${p.alpha})`;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(drawParabola);
+            }
+            drawParabola();
+        }
+
+        // 3. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 4. Highlight Contact Section
+        function highlightContact() {
+            const card = document.getElementById('contactCard');
+            card.classList.add('ring-2', 'ring-cyberCyan', 'scale-[1.02]');
+            setTimeout(() => {
+                card.classList.remove('ring-2', 'ring-cyberCyan', 'scale-[1.02]');
+            }, 2000);
+        }
+
+        // 5. 1-Click Copy Email
+        function copyEmail() {
+            const email = "shahriarnafix@gmail.com";
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(email);
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+            const copyBtnText = document.getElementById('copyBtnText');
+            copyBtnText.textContent = "Copied!";
+            setTimeout(() => {
+                copyBtnText.textContent = "Copy Email";
+            }, 3000);
+        }
+
+        // 6. Contact Form Mailto Handler
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const subject = document.getElementById('msgSubject').value || 'Legacy Connection Inquiry';
+            const body = document.getElementById('msgBody').value;
+
+            const mailtoUrl = `mailto:shahriarnafix@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${body}`)}`;
+            
+            formSuccess.classList.remove('hidden');
+            
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+            }, 500);
+
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+                contactForm.reset();
+            }, 5000);
+        });
+
+        // 7. Interactive Retro Terminal CLI
+        const terminalInput = document.getElementById('terminalInput');
+        const terminalOutput = document.getElementById('terminalOutput');
+
+        const commands = {
+            'help': 'Available commands: <span class="text-cyberCyan">story, certs, socials, email, metrics, vision, prague, clear</span>',
+            'story': 'Root: Barisal ➔ Dhaka Science Pioneer ➔ Age 15 Laptop Breakthrough ➔ 88%+ Sales Closing ➔ Gulshan Era ➔ Prague 2027.',
+            'certs': '1. Cambridge (AI/Data Science)\n2. Helsinki (Ethics AI)\n3. Uni of Leeds (Software Testing)\n4. UN University (Net Zero)\n5. AWS (ML/AI)\n6. ENISA (Zero Trust Security)',
+            'socials': 'LinkedIn: https://www.linkedin.com/in/mdsni/\nFacebook: https://www.facebook.com/kingpin404/\nInstagram: https://www.instagram.com/kingpin_404/\nYouTube: https://www.youtube.com/@irfanvay',
+            'email': 'Direct email: <span class="text-cyberCyan">shahriarnafix@gmail.com</span>',
+            'metrics': '• Sales Closing: 88%+\n• Sectors: RMG, Superstores, EdTech, Venture Prep\n• Target: Global Conglomerate',
+            'vision': 'Building a parent enterprise scaling AI solutions, intelligent retail services, and global venture investments.',
+            'prague': 'Enrolled for BSc in Computer Science in Prague, Czech Republic starting September 2027.'
+        };
+
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const inputVal = terminalInput.value.trim().toLowerCase();
+                terminalInput.value = '';
+
+                if (inputVal === '') return;
+
+                const promptLine = document.createElement('p');
+                promptLine.className = 'text-slate-400';
+                promptLine.innerHTML = `<span class="text-cyberCyan">&gt; ${inputVal}</span>`;
+                terminalOutput.appendChild(promptLine);
+
+                if (inputVal === 'clear') {
+                    terminalOutput.innerHTML = '';
+                    return;
+                }
+
+                const responseLine = document.createElement('p');
+                if (commands[inputVal]) {
+                    responseLine.innerHTML = commands[inputVal].replace(/\n/g, '<br>');
+                } else {
+                    responseLine.innerHTML = `<span class="text-red-400">Command not found: '${inputVal}'. Type 'help' for commands.</span>`;
+                }
+                terminalOutput.appendChild(responseLine);
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
